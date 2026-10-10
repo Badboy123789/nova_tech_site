@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NovaTech Owner Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      background: #07111f;
+      color: #ffffff;
+    }
+
+    .login-box {
+      width: 100%;
+      max-width: 400px;
+      padding: 30px;
+      background: #10243a;
+      border-radius: 16px;
+    }
+
+    h1 span {
+      color: #19a7ff;
+    }
+
+    p {
+      color: #cbd5e1;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      margin: 12px 0;
+      border: 1px solid #64748b;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      background: #19a7ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #message {
+      color: #ff8a8a;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      color: #19a7ff;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h1>Nova<span>Tech</span></h1>
+    <p>PRIVATE AREA — OWNER LOGIN</p>
+    <p>Demo password: 12345</p>
+
+    <form id="loginForm">
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        required
+      >
+
+      <button type="submit">Login</button>
+      <p id="message"></p>
+    </form>
+
+    <a href="index.html">Back to Website</a>
+  </div>
+
+  <script>
+    document.getElementById("loginForm")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const password =
+          document.getElementById("password").value;
+
+        if (password === "12345") {
+          sessionStorage.setItem("owner", "yes");
+          window.location.href = "dashboard.html";
+        } else {
+          document.getElementById("message").textContent =
+            "Incorrect password. Please try again.";
+        }
+      });
+  </script>
+
+</body>
+</html>
